@@ -1,0 +1,4 @@
+fr\yatsuu\yatsuuMenu\gui\ServerSelectionGUI.class
+fr\yatsuu\yatsuuMenu\commands\ReloadCommand.class
+fr\yatsuu\yatsuuMenu\YatsuuMenu.class
+fr\yatsuu\yatsuuMenu\events\PlayerJoinListener.class

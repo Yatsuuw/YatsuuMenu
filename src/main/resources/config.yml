@@ -1,0 +1,8 @@
+item_name: "Navigation"
+interface_name: "Select a server."
+switch_item_name: "Switch Server."
+switching_message: "Switching server..."
+server: "survie"
+
+no_permission: "§eYatsuuMenu > You do not have %permission% to run this command."
+success_reload: "§eYatsuuMenu > The configuration has been reloaded."
