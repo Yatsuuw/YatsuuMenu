@@ -31,7 +31,7 @@ public class ServerSelectionGUI implements Listener {
 
     public void openInventory(Player player) {
 
-        Inventory inv = Bukkit.createInventory(null, 27, ChatColor.GREEN + plugin.getConfig().getString("interface_name"));
+        Inventory inv = Bukkit.createInventory(null, 27, ChatColor.translateAlternateColorCodes('&',plugin.getConfig().getString("interface_name")));
 
         ItemStack serverItem = new ItemStack(Material.GRASS_BLOCK);
         ItemMeta meta = serverItem.getItemMeta();
@@ -42,46 +42,6 @@ public class ServerSelectionGUI implements Listener {
 
         inv.setItem(13, serverItem);
         player.openInventory(inv);
-
-    }
-
-    @EventHandler
-    public void onInventoryClick(InventoryClickEvent event) {
-
-        if (event.getView().getTitle().equals(ChatColor.GREEN + plugin.getConfig().getString("interface_name"))) {
-
-            event.setCancelled(true);
-            event.setResult(Event.Result.DENY);
-
-            Player player = (Player) event.getWhoClicked();
-
-            if (event.getCurrentItem() != null && event.getCurrentItem().getType() == Material.GRASS_BLOCK) {
-
-                if (event.isLeftClick() || event.isRightClick()) {
-
-                    player.sendMessage(ChatColor.GREEN + plugin.getConfig().getString("switching_message"));
-
-                    player.closeInventory();
-
-                }
-
-            }
-
-            //ByteArrayOutputStream b = new ByteArrayOutputStream();
-            //DataOutputStream out = new DataOutputStream(b);
-
-            //try {
-
-            //out.writeUTF("Connect");
-            //out.writeUTF(Objects.requireNonNull(plugin.getConfig().getString("server")));
-
-            //} catch (IOException e) {
-
-            //player.sendMessage(ChatColor.RED + "Failed to connect " + plugin.getConfig().getString("server") + " server.");
-
-            //}
-
-        }
 
     }
 
