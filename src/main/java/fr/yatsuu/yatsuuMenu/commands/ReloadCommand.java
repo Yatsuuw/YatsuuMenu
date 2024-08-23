@@ -20,26 +20,36 @@ public class ReloadCommand implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand( @Nonnull CommandSender sender, @Nonnull Command command, @Nonnull String label, @Nonnull String[] args) {
+    public boolean onCommand(@Nonnull CommandSender sender, @Nonnull Command command, @Nonnull String label, @Nonnull String[] args) {
 
         if (!sender.hasPermission("yatsuumenu.command.reload")) {
 
             String no_perm = Objects.requireNonNull(plugin.getConfig().getString("no_permission")).replace("%permission%", "yatsuumenu.command.reload");
-            sender.sendMessage(ChatColor.RED + no_perm);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', no_perm));
 
         } else {
 
             if (!sender.hasPermission("yatsuumenu.command.reload")) {
 
                 String no_perm = Objects.requireNonNull(plugin.getConfig().getString("no_permission")).replace("%permission%", "yatsuumenu.command.reload");
-                sender.sendMessage(ChatColor.RED + no_perm);
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', no_perm));
 
                 return true;
 
             }
 
+            if (!Objects.requireNonNull(plugin.getConfig().getConfigurationSection("")).getKeys(false).isEmpty()) {
+
+                plugin.saveDefaultConfig();
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("success_reload"))));
+
+            } else {
+
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("success_reload"))));
+
+            }
+
             plugin.reloadConfig();
-            sender.sendMessage(ChatColor.GREEN + plugin.getConfig().getString("success_reload"));
 
         }
 

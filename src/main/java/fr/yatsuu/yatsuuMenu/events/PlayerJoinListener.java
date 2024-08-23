@@ -12,6 +12,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.Objects;
+
 public class PlayerJoinListener implements Listener {
 
     private final YatsuuMenu plugin;
@@ -29,7 +31,7 @@ public class PlayerJoinListener implements Listener {
         ItemMeta meta = item.getItemMeta();
 
         assert meta != null;
-        meta.setDisplayName(ChatColor.GREEN + plugin.getConfig().getString("item_name"));
+        meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("item_name"))));
         item.setItemMeta(meta);
 
         event.getPlayer().getInventory().setItem(4, item);
