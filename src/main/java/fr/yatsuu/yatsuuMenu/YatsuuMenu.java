@@ -1,6 +1,6 @@
 package fr.yatsuu.yatsuuMenu;
 
-import fr.yatsuu.yatsuuMenu.commands.ReloadCommand;
+import fr.yatsuu.yatsuuMenu.commands.ymLoadCommand;
 import fr.yatsuu.yatsuuMenu.events.OnClickEvent;
 import fr.yatsuu.yatsuuMenu.events.PlayerJoinListener;
 import org.bukkit.plugin.PluginManager;
@@ -43,7 +43,7 @@ public final class YatsuuMenu extends JavaPlugin {
     @SuppressWarnings("ConstantConditions")
     private void registerCommands() {
 
-        this.getCommand("ymreload").setExecutor(new ReloadCommand(this));
+        this.getCommand("ymload").setExecutor(new ymLoadCommand(this));
 
     }
 

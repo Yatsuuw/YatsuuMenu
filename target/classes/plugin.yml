@@ -6,8 +6,8 @@ description: Plugin that lets you change servers via an interface.
 author: Yatsuu
 
 commands:
-  ymreload:
+  ymload:
     description: Reloads the plugin configuration.
-    usage: /ymreload
-    permission: yatsuumenu.command.reload
+    usage: /ymload
+    permission: yatsuumenu.command.ymload
     default: op
